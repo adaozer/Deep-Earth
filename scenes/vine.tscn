@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bvcis01c3fwam"]
+
+[ext_resource type="Script" uid="uid://08763y7evtc0" path="res://scripts/vine.gd" id="1_smajk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_smajk"]
+size = Vector2(20, 186)
+
+[node name="vine" type="Area2D" unique_id=1508631454]
+script = ExtResource("1_smajk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=809554769]
+position = Vector2(0, 35)
+shape = SubResource("RectangleShape2D_smajk")

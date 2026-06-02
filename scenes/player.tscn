@@ -152,7 +152,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dqkch"]
 size = Vector2(18, 29.333334)
 
-[node name="player" type="CharacterBody2D" unique_id=2102019393]
+[node name="player" type="CharacterBody2D" unique_id=2102019393 groups=["player"]]
 texture_filter = 1
 scale = Vector2(3, 3)
 script = ExtResource("1_dqkch")

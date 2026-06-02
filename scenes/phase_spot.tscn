@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://veu3k07msfra"]
+
+[ext_resource type="Script" uid="uid://cs6btk3jkmpv2" path="res://scripts/phase_spot.gd" id="1_n5y46"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p1nyt"]
+size = Vector2(54, 88)
+
+[node name="PhaseSpot" type="Area2D" unique_id=1540337535]
+script = ExtResource("1_n5y46")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1319871263]
+position = Vector2(-3, 3)
+shape = SubResource("RectangleShape2D_p1nyt")
