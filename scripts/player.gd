@@ -12,23 +12,39 @@ var swing_anchor: Vector2
 var swing_length: float
 var swing_angle: float
 var swing_angular_velocity: float = 0.0
-const SWING_SPEED = 5.0
-const SWING_CONTROL = 4.0
-const SWING_DAMPING = 0.999
+const SWING_SPEED = 20.0
+const SWING_DAMPING = 1.0
 var available_vine = null
 
+func _ready():
+	$Camera2D.reset_smoothing()
+	
+func set_animation(anim: String) -> void:
+	if animated_sprite_2d.animation != anim or not animated_sprite_2d.is_playing():
+		animated_sprite_2d.play(anim)
 func _physics_process(delta: float) -> void:
 	if swinging:
 		_process_swing(delta)
 		return
 	# Add the gravity.
+	
+	if current_phase_spot and Input.is_action_pressed("phase"):
+		phase_timer += delta
+		if phase_timer >= PHASE_HOLD_TIME:
+			global_position = current_phase_spot.exit_position
+			velocity = Vector2.ZERO
+			phase_timer = 0.0
+	else:
+		phase_timer = 0.0
+		
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-		animated_sprite_2d.animation = "jump"
+		set_animation("jump")
 	elif velocity.x > 1 or velocity.x < -1:
-		animated_sprite_2d.animation = "walk"
+		set_animation("walk")
 	else:
-		animated_sprite_2d.animation = "idle"
+		set_animation("idle")
+	animated_sprite_2d.rotation = 0.0
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
@@ -56,14 +72,7 @@ func _physics_process(delta: float) -> void:
 				
 	if available_vine and Input.is_action_just_pressed("grab") and not swinging:
 		try_grab_vine(available_vine)
-		
-	if current_phase_spot and Input.is_action_pressed("phase"):
-		phase_timer += delta
-		if phase_timer >= PHASE_HOLD_TIME:
-			global_position = current_phase_spot.exit_position
-			phase_timer = 0.0
-	else:
-		phase_timer = 0.0
+
 		
 	if direction == 1.0:
 		animated_sprite_2d.flip_h = false
@@ -79,25 +88,30 @@ func exit_phase_spot():
 	
 func try_grab_vine(anchor):
 	swinging = true
+	set_animation("jump")
 	swing_anchor = anchor.global_position
 	swing_length = global_position.distance_to(swing_anchor)
 	var offset = global_position - swing_anchor
 	swing_angle = atan2(offset.x, offset.y)
-	swing_angular_velocity = 0.0
+	swing_angular_velocity = (velocity.x / swing_length) * 0.8
 		
 func _process_swing(delta: float) -> void:
-	var direction = Input.get_axis("left", "right")
 	swing_angular_velocity -= (SWING_SPEED * sin(swing_angle)) * delta
-	swing_angular_velocity += direction * SWING_CONTROL * delta
 	swing_angular_velocity *= pow(SWING_DAMPING, delta * 60)
 	
 	swing_angle += swing_angular_velocity * delta
+	swing_angle = clamp(swing_angle, -1.4, 1.4)
+	if abs(swing_angle) >= 1.4:
+		swing_angular_velocity *= -0.3
 	global_position = swing_anchor + Vector2(
 		sin(swing_angle) * swing_length,
 		cos(swing_angle) * swing_length
 	)
+	
+	animated_sprite_2d.rotation = -swing_angle
 	if Input.is_action_just_pressed("jump"):
 		swinging = false
+		animated_sprite_2d.play("jump")
 		var speed = swing_angular_velocity * swing_length
 		velocity = Vector2(
 			cos(swing_angle) * speed,

@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://0pk560rgv22i"]
+
+[ext_resource type="Texture2D" uid="uid://b8kf3j70ubf8g" path="res://icon.svg" id="1_inses"]
+[ext_resource type="Script" uid="uid://dk52ge7ikm747" path="res://scripts/crumbling_platform.gd" id="1_qc85g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_inses"]
+size = Vector2(125, 125)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qc85g"]
+size = Vector2(95, 25)
+
+[node name="StaticBody2D" type="StaticBody2D" unique_id=918225734]
+script = ExtResource("1_qc85g")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=426424793]
+texture = ExtResource("1_inses")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2128261315]
+position = Vector2(0.5, -0.5)
+shape = SubResource("RectangleShape2D_inses")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=222098682]
+
+[node name="detector" type="CollisionShape2D" parent="Area2D" unique_id=1898511308]
+position = Vector2(-0.5, -75.5)
+shape = SubResource("RectangleShape2D_qc85g")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
