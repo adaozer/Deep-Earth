@@ -1,19 +1,19 @@
-[gd_scene format=4 uid="uid://gkq5nwvatxhl"]
+[gd_scene format=4 uid="uid://dqtub23egx1kr"]
 
-[ext_resource type="Texture2D" uid="uid://dk1sc4f23acf2" path="res://assets/tileset/Tileset.png" id="1_g2h75"]
-[ext_resource type="Texture2D" uid="uid://cv7gkxx4b6a5e" path="res://assets/tileset/Background.png" id="2_d3jkd"]
-[ext_resource type="Texture2D" uid="uid://cq4w8xiyb2pg8" path="res://assets/tileset/vegetation.png" id="2_ru4tf"]
-[ext_resource type="PackedScene" uid="uid://l5hve1wbl7mg" path="res://scenes/player.tscn" id="2_wwpf4"]
-[ext_resource type="Texture2D" uid="uid://b3i0jf60twkyd" path="res://assets/bg_assets/Spikes.png" id="3_bbk5w"]
-[ext_resource type="PackedScene" uid="uid://veu3k07msfra" path="res://scenes/phase_spot.tscn" id="3_m7ahb"]
-[ext_resource type="Texture2D" uid="uid://q31y401yyq2r" path="res://assets/tileset/Tiles.png" id="3_u3awl"]
-[ext_resource type="Texture2D" uid="uid://cklx3qgqmbjel" path="res://assets/bg_assets/Vine_1.png" id="4_conm7"]
-[ext_resource type="PackedScene" uid="uid://bvcis01c3fwam" path="res://scenes/vine.tscn" id="4_dwgg1"]
-[ext_resource type="Texture2D" uid="uid://cw6o4474fwpxt" path="res://assets/bg_assets/Water.png" id="5_d3jkd"]
-[ext_resource type="PackedScene" uid="uid://66ho5vfjtihe" path="res://scenes/level_transition.tscn" id="11_u3awl"]
+[ext_resource type="Texture2D" uid="uid://dk1sc4f23acf2" path="res://assets/tileset/Tileset.png" id="1_thmvh"]
+[ext_resource type="Texture2D" uid="uid://cv7gkxx4b6a5e" path="res://assets/tileset/Background.png" id="2_54swg"]
+[ext_resource type="Texture2D" uid="uid://q31y401yyq2r" path="res://assets/tileset/Tiles.png" id="3_teump"]
+[ext_resource type="Texture2D" uid="uid://b3i0jf60twkyd" path="res://assets/bg_assets/Spikes.png" id="4_oe7sd"]
+[ext_resource type="Texture2D" uid="uid://cq4w8xiyb2pg8" path="res://assets/tileset/vegetation.png" id="5_jyn2d"]
+[ext_resource type="Texture2D" uid="uid://cklx3qgqmbjel" path="res://assets/bg_assets/Vine_1.png" id="6_7h48i"]
+[ext_resource type="Texture2D" uid="uid://cw6o4474fwpxt" path="res://assets/bg_assets/Water.png" id="7_35rec"]
+[ext_resource type="PackedScene" uid="uid://l5hve1wbl7mg" path="res://scenes/player.tscn" id="8_o0ljq"]
+[ext_resource type="PackedScene" uid="uid://veu3k07msfra" path="res://scenes/phase_spot.tscn" id="9_su468"]
+[ext_resource type="PackedScene" uid="uid://bvcis01c3fwam" path="res://scenes/vine.tscn" id="10_ylt8s"]
+[ext_resource type="PackedScene" uid="uid://66ho5vfjtihe" path="res://scenes/level_transition.tscn" id="11_7eo2k"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d3jkd"]
-texture = ExtResource("1_g2h75")
+texture = ExtResource("1_thmvh")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -32,7 +32,7 @@ texture = ExtResource("1_g2h75")
 sources/0 = SubResource("TileSetAtlasSource_d3jkd")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dwgg1"]
-texture = ExtResource("1_g2h75")
+texture = ExtResource("1_thmvh")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -56,7 +56,7 @@ texture = ExtResource("1_g2h75")
 4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gnai3"]
-texture = ExtResource("2_d3jkd")
+texture = ExtResource("2_54swg")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -67,7 +67,7 @@ texture = ExtResource("2_d3jkd")
 1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i8kv5"]
-texture = ExtResource("3_u3awl")
+texture = ExtResource("3_teump")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -138,7 +138,7 @@ texture = ExtResource("3_u3awl")
 11:5/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dxn3v"]
-texture = ExtResource("3_bbk5w")
+texture = ExtResource("4_oe7sd")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-5.3957615, -8, -1.978447, -8, -1.0791531, -1.2590103, -6.115197, -1.6187286)
 0:0/0/physics_layer_0/polygon_1/points = PackedVector2Array(4.4964676, -3.956891, 6.4749146, 1.4388714, 2.6978817, 1.0791531)
@@ -154,7 +154,7 @@ sources/6 = SubResource("TileSetAtlasSource_i8kv5")
 sources/7 = SubResource("TileSetAtlasSource_dxn3v")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6sh32"]
-texture = ExtResource("2_ru4tf")
+texture = ExtResource("5_jyn2d")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -186,11 +186,11 @@ texture = ExtResource("2_ru4tf")
 7:3/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2ku1j"]
-texture = ExtResource("4_conm7")
+texture = ExtResource("6_7h48i")
 0:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f31uk"]
-texture = ExtResource("5_d3jkd")
+texture = ExtResource("7_35rec")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -251,16 +251,16 @@ scale = Vector2(3, 3)
 tile_map_data = PackedByteArray("AAABAAIAAAAAAAEAAAACAAIAAAABAAEAAAADAAIAAAACAAEAAAAEAAIAAAAAAAEAAAAHAAIAAAAAAAEAAAAIAAIAAAAAAAEAAAAKAAIAAAACAAEAAAALAAIAAAAAAAEAAAANAAEAAAAFAAAAAAAPAAIAAgAAAAAAAAAQAAIAAAABAAEAAAARAAIAAAAAAAEAAAASAAIAAAADAAEAAAATAAIAAAAAAAEAAAABAAEAAAAAAAAAAAACAAEAAAABAAAAAAADAAEAAAACAAAAAAAEAAEAAAAAAAAAAAAFAAEAAAAEAAAAAAAGAAEAAAAFAAAAAAAHAAEAAAAAAAAAAAAIAAEAAAAAAAAAAAAKAAEAAAACAAAAAAALAAEAAAAAAAAAAAAMAAEAAAAEAAAAAAATAAEAAAAAAAAAAAASAAEAAAADAAAAAAARAAEAAAAAAAAAAAAQAAEAAAABAAAAAAAPAAEAAgAAAAAAAAAPAAMAAgAAAAAAAAAPAAQAAgAAAAAAAAAPAAUAAgAAAAAAAAAOAAEAAAACAAAAAAAOAAIAAAACAAEAAAA=")
 tile_set = SubResource("TileSet_ejswk")
 
-[node name="player" parent="." unique_id=2102019393 instance=ExtResource("2_wwpf4")]
+[node name="player" parent="." unique_id=2102019393 instance=ExtResource("8_o0ljq")]
 position = Vector2(136, 429)
 
-[node name="PhaseSpot" parent="." unique_id=1540337535 instance=ExtResource("3_m7ahb")]
+[node name="PhaseSpot" parent="." unique_id=1540337535 instance=ExtResource("9_su468")]
 position = Vector2(919, 287)
 exit_position = Vector2(920, 630)
 
-[node name="vine" parent="." unique_id=1508631454 instance=ExtResource("4_dwgg1")]
+[node name="vine" parent="." unique_id=1508631454 instance=ExtResource("10_ylt8s")]
 position = Vector2(742, 161)
 
-[node name="level_transition" parent="." unique_id=1763283473 instance=ExtResource("11_u3awl")]
+[node name="level_transition" parent="." unique_id=1763283473 instance=ExtResource("11_7eo2k")]
 position = Vector2(1316, 573)
 next_scene = "level2"

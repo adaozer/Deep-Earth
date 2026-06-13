@@ -1,6 +1,6 @@
 extends AnimatableBody2D
 
-@export var move_distance: float = 300.0
+@export var move_distance: float = 100.0
 @export var move_speed: float = 1.0
 @export var horizontal: bool = true
 

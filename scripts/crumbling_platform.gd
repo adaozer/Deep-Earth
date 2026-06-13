@@ -3,8 +3,8 @@ extends StaticBody2D
 @onready var collision = $CollisionShape2D
 @onready var sprite = $Sprite2D
 
-const CRUMBLE_TIME = 1.0
-const RESPAWN_TIME = 5.0
+const CRUMBLE_TIME = 0.5
+const RESPAWN_TIME = 3.0
 
 var crumble_timer = 0.0
 var respawn_timer = 0.0

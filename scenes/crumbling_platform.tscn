@@ -9,7 +9,7 @@ size = Vector2(125, 125)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qc85g"]
 size = Vector2(95, 25)
 
-[node name="StaticBody2D" type="StaticBody2D" unique_id=918225734]
+[node name="crumbling_platform" type="StaticBody2D" unique_id=918225734]
 script = ExtResource("1_qc85g")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=426424793]

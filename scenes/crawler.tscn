@@ -32,10 +32,10 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ciepn"]
 radius = 5.0
-height = 18.0
+height = 16.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kaw6r"]
-radius = 6.0
+radius = 5.6666665
 height = 18.0
 
 [node name="crawler" type="CharacterBody2D" unique_id=788871206]
@@ -49,14 +49,13 @@ animation = &"walk"
 autoplay = "walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=898792433]
-visible = false
-position = Vector2(0, 7)
+position = Vector2(1.7763568e-15, 7.6666665)
 rotation = -1.5707964
 shape = SubResource("CapsuleShape2D_ciepn")
 
 [node name="hitbox" type="Area2D" parent="." unique_id=331446068]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox" unique_id=1228425998]
-position = Vector2(-1.0658141e-14, 6.6666665)
+position = Vector2(-1.8947809e-14, 7.333333)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_kaw6r")
