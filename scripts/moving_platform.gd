@@ -8,6 +8,7 @@ var start_position: Vector2
 
 func _ready():
 	call_deferred("_init_position")
+	$platform_move.play()
 
 func _init_position():
 	start_position = global_position

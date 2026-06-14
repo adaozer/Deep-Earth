@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://gkq5nwvatxhl"]
 
+[ext_resource type="Script" uid="uid://w5rmxjhvqbau" path="res://scripts/level_1.gd" id="1_2ku1j"]
 [ext_resource type="Texture2D" uid="uid://dk1sc4f23acf2" path="res://assets/tileset/Tileset.png" id="1_g2h75"]
 [ext_resource type="Texture2D" uid="uid://cv7gkxx4b6a5e" path="res://assets/tileset/Background.png" id="2_d3jkd"]
 [ext_resource type="Texture2D" uid="uid://cq4w8xiyb2pg8" path="res://assets/tileset/vegetation.png" id="2_ru4tf"]
@@ -230,8 +231,9 @@ sources/2 = SubResource("TileSetAtlasSource_2ku1j")
 sources/3 = SubResource("TileSetAtlasSource_f31uk")
 
 [node name="LevelRoot2" type="Node2D" unique_id=1943269056]
-metadata/_edit_vertical_guides_ = [652.0, -317.0, -75.0]
-metadata/_edit_horizontal_guides_ = [628.0, 630.0, 628.0, 672.0, 618.0, 627.0]
+script = ExtResource("1_2ku1j")
+metadata/_edit_vertical_guides_ = [-44.0, -317.0, -75.0]
+metadata/_edit_horizontal_guides_ = [628.0, 821.0, 801.0, 672.0, 811.0, 811.0]
 
 [node name="bg" type="TileMapLayer" parent="." unique_id=1523826319]
 texture_filter = 1
@@ -252,7 +254,7 @@ tile_map_data = PackedByteArray("AAABAAIAAAAAAAEAAAACAAIAAAABAAEAAAADAAIAAAACAAE
 tile_set = SubResource("TileSet_ejswk")
 
 [node name="player" parent="." unique_id=2102019393 instance=ExtResource("2_wwpf4")]
-position = Vector2(136, 429)
+position = Vector2(155, 432.00003)
 
 [node name="PhaseSpot" parent="." unique_id=1540337535 instance=ExtResource("3_m7ahb")]
 position = Vector2(919, 287)

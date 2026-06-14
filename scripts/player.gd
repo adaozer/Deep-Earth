@@ -15,6 +15,8 @@ var swing_angular_velocity: float = 0.0
 const SWING_SPEED = 20.0
 const SWING_DAMPING = 1.0
 var available_vine = null
+var footstep_timer = 0.0
+const FOOTSTEP_INTERVAL = 0.3
 
 func _ready():
 	$Camera2D.reset_smoothing()
@@ -31,6 +33,7 @@ func _physics_process(delta: float) -> void:
 	if current_phase_spot and Input.is_action_pressed("phase"):
 		phase_timer += delta
 		if phase_timer >= PHASE_HOLD_TIME:
+			$phase_sound.play()
 			global_position = current_phase_spot.exit_position
 			velocity = Vector2.ZERO
 			phase_timer = 0.0
@@ -40,10 +43,18 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 		set_animation("jump")
+		footstep_timer = 0.0
 	elif velocity.x > 1 or velocity.x < -1:
 		set_animation("walk")
+		if footstep_timer == 0.0:
+			$footstep_sound.play()
+		footstep_timer += delta
+		if footstep_timer >= FOOTSTEP_INTERVAL:
+			$footstep_sound.play()
+			footstep_timer = 0.0
 	else:
 		set_animation("idle")
+		footstep_timer = 0.0
 	animated_sprite_2d.rotation = 0.0
 
 	# Handle jump.
@@ -87,6 +98,7 @@ func exit_phase_spot():
 	phase_timer = 0.0
 	
 func try_grab_vine(anchor):
+	$swing_sound.play()
 	swinging = true
 	set_animation("jump")
 	swing_anchor = anchor.global_position
@@ -96,6 +108,7 @@ func try_grab_vine(anchor):
 	swing_angular_velocity = (velocity.x / swing_length) * 0.8
 		
 func _process_swing(delta: float) -> void:
+	var was_negative = swing_angle < 0
 	swing_angular_velocity -= (SWING_SPEED * sin(swing_angle)) * delta
 	swing_angular_velocity *= pow(SWING_DAMPING, delta * 60)
 	
@@ -103,6 +116,11 @@ func _process_swing(delta: float) -> void:
 	swing_angle = clamp(swing_angle, -1.4, 1.4)
 	if abs(swing_angle) >= 1.4:
 		swing_angular_velocity *= -0.3
+	if was_negative and swing_angle >= 0:
+		$swing_sound.play()
+	elif not was_negative and swing_angle < 0:
+		$swing_sound.play()
+		
 	global_position = swing_anchor + Vector2(
 		sin(swing_angle) * swing_length,
 		cos(swing_angle) * swing_length
@@ -117,8 +135,14 @@ func _process_swing(delta: float) -> void:
 			cos(swing_angle) * speed,
 			-sin(swing_angle) * speed
 		)
-func die():
+func die(sound: String = "spike"):
 	if is_dead:
 		return
 	is_dead = true
+	set_physics_process(false)
+	if sound == "slime":
+		$slime_death_sound.play()
+	else:
+		$spike_death_sound.play()
+	await get_tree().create_timer(0.5).timeout
 	get_tree().reload_current_scene()

@@ -24,6 +24,7 @@ func _physics_process(delta):
 
 func start_crumbling():
 	if state == "idle":
+		$platform_crumble.play()
 		state = "crumbling"
 		crumble_timer = 0.0
 		shake_tween = create_tween().set_loops()
@@ -40,6 +41,7 @@ func break_platform():
 
 func respawn_platform():
 	state = "idle"
+	$platform_appear.play()
 	sprite.visible = true
 	sprite.position.x = 0.0
 	collision.disabled = false

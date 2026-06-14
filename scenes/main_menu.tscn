@@ -1,0 +1,107 @@
+[gd_scene format=3 uid="uid://lwkyaxe4s5cb"]
+
+[ext_resource type="Script" uid="uid://cdcuaiyihip03" path="res://scripts/main_menu.gd" id="1_l6cm7"]
+[ext_resource type="Texture2D" uid="uid://cy4b0g3o7ypw5" path="res://assets/bg_assets/cave_bg.png" id="2_bqqt6"]
+[ext_resource type="FontFile" uid="uid://cc06glcceycu6" path="res://assets/font/Dekartaretro.ttf" id="3_8ln24"]
+[ext_resource type="AudioStream" uid="uid://bss6t6fi6vmnu" path="res://assets/sounds/menu_bg.mp3" id="3_wu84c"]
+[ext_resource type="AudioStream" uid="uid://b2ewgk14cjdin" path="res://assets/sounds/menu_select.mp3" id="5_8ln24"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rtw2f"]
+content_margin_left = 24.0
+content_margin_top = 12.0
+content_margin_right = 24.0
+content_margin_bottom = 12.0
+bg_color = Color(0.3529412, 0.29411766, 0.011764706, 0.4392157)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wu84c"]
+bg_color = Color(0.53495467, 0.44975156, 0.02608552, 0.4392157)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oa1go"]
+content_margin_left = 24.0
+content_margin_top = 12.0
+content_margin_right = 24.0
+content_margin_bottom = 12.0
+bg_color = Color(0.3529412, 0.29411766, 0.011764706, 0.4392157)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ln24"]
+bg_color = Color(0.53333336, 0.4509804, 0.02745098, 0.4392157)
+
+[node name="main_menu" type="Control" unique_id=697055386]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_l6cm7")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1127539573]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1243.0
+offset_bottom = 688.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_bqqt6")
+expand_mode = 1
+
+[node name="ColorRect" type="ColorRect" parent="TextureRect" unique_id=1665948183]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -3.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.78431374)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=30704122]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 4.0
+offset_right = 1278.0
+offset_bottom = 721.0
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1567504187]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.47783792, 0.23427278, 0.01500428, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_8ln24")
+theme_override_font_sizes/font_size = 64
+text = "Deep Earth"
+horizontal_alignment = 1
+
+[node name="Play" type="Button" parent="VBoxContainer" unique_id=62880301]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_8ln24")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_rtw2f")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wu84c")
+text = "Start"
+
+[node name="Quit" type="Button" parent="VBoxContainer" unique_id=1607248868]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_8ln24")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_oa1go")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8ln24")
+text = "Quit "
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=502438072]
+stream = ExtResource("3_wu84c")
+autoplay = true
+
+[node name="click" type="AudioStreamPlayer" parent="." unique_id=1906904781]
+stream = ExtResource("5_8ln24")

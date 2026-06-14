@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://x66cj3p71obc" path="res://scripts/moving_platform.gd" id="1_1tdcd"]
 [ext_resource type="Texture2D" uid="uid://b8kf3j70ubf8g" path="res://icon.svg" id="1_ms375"]
+[ext_resource type="AudioStream" uid="uid://ccnjbsbfss3kc" path="res://assets/sounds/platform_move.wav" id="3_mb26n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1tdcd"]
 size = Vector2(123, 124)
@@ -15,3 +16,7 @@ texture = ExtResource("1_ms375")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=671384755]
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_1tdcd")
+
+[node name="platform_move" type="AudioStreamPlayer2D" parent="." unique_id=463879313]
+stream = ExtResource("3_mb26n")
+volume_db = -10.0

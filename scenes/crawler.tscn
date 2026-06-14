@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bemx8bkq8vxec" path="res://assets/slime/slime_f3.png" id="4_pg85k"]
 [ext_resource type="Texture2D" uid="uid://cx5cufvhamiyp" path="res://assets/slime/slime_f4.png" id="5_wutyo"]
 [ext_resource type="Texture2D" uid="uid://dk2cc3gr0lico" path="res://assets/slime/slime_f5.png" id="6_jvisr"]
+[ext_resource type="AudioStream" uid="uid://cfhsm12d67fxn" path="res://assets/sounds/slime_move.wav" id="7_0m443"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xdvhm"]
 animations = [{
@@ -59,3 +60,7 @@ shape = SubResource("CapsuleShape2D_ciepn")
 position = Vector2(-1.8947809e-14, 7.333333)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_kaw6r")
+
+[node name="move" type="AudioStreamPlayer2D" parent="." unique_id=1834879673]
+stream = ExtResource("7_0m443")
+volume_db = -15.0

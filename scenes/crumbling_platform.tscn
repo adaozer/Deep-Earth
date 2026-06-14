@@ -2,6 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://b8kf3j70ubf8g" path="res://icon.svg" id="1_inses"]
 [ext_resource type="Script" uid="uid://dk52ge7ikm747" path="res://scripts/crumbling_platform.gd" id="1_qc85g"]
+[ext_resource type="AudioStream" uid="uid://dwmtu174rm0q7" path="res://assets/sounds/platform_appear.wav" id="3_uchm4"]
+[ext_resource type="AudioStream" uid="uid://dbrhh2jeygwd1" path="res://assets/sounds/platform_crumble.wav" id="4_hk8yq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_inses"]
 size = Vector2(125, 125)
@@ -24,6 +26,13 @@ shape = SubResource("RectangleShape2D_inses")
 [node name="detector" type="CollisionShape2D" parent="Area2D" unique_id=1898511308]
 position = Vector2(-0.5, -75.5)
 shape = SubResource("RectangleShape2D_qc85g")
+
+[node name="platform_appear" type="AudioStreamPlayer2D" parent="." unique_id=1805200484]
+stream = ExtResource("3_uchm4")
+
+[node name="platform_crumble" type="AudioStreamPlayer2D" parent="." unique_id=794750577]
+stream = ExtResource("4_hk8yq")
+volume_db = -8.0
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
