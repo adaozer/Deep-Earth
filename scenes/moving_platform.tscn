@@ -20,3 +20,4 @@ shape = SubResource("RectangleShape2D_1tdcd")
 [node name="platform_move" type="AudioStreamPlayer2D" parent="." unique_id=463879313]
 stream = ExtResource("3_mb26n")
 volume_db = -10.0
+bus = &"SFX"

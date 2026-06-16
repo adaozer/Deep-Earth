@@ -64,3 +64,4 @@ shape = SubResource("CapsuleShape2D_kaw6r")
 [node name="move" type="AudioStreamPlayer2D" parent="." unique_id=1834879673]
 stream = ExtResource("7_0m443")
 volume_db = -15.0
+bus = &"SFX"

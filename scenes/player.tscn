@@ -181,17 +181,22 @@ position_smoothing_enabled = true
 [node name="footstep_sound" type="AudioStreamPlayer2D" parent="." unique_id=670340654]
 stream = ExtResource("5_ur7pv")
 volume_db = -10.0
+bus = &"SFX"
 
 [node name="phase_sound" type="AudioStreamPlayer2D" parent="." unique_id=1474500620]
 stream = ExtResource("6_y4r1p")
 volume_db = 10.0
+bus = &"SFX"
 
 [node name="swing_sound" type="AudioStreamPlayer2D" parent="." unique_id=947825734]
 stream = ExtResource("7_d2wvv")
+bus = &"SFX"
 
 [node name="slime_death_sound" type="AudioStreamPlayer2D" parent="." unique_id=36855154]
 stream = ExtResource("8_3v2ag")
+bus = &"SFX"
 
 [node name="spike_death_sound" type="AudioStreamPlayer2D" parent="." unique_id=629532527]
 stream = ExtResource("9_jej6c")
 volume_db = -20.0
+bus = &"SFX"

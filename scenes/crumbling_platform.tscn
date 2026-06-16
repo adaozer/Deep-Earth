@@ -29,10 +29,12 @@ shape = SubResource("RectangleShape2D_qc85g")
 
 [node name="platform_appear" type="AudioStreamPlayer2D" parent="." unique_id=1805200484]
 stream = ExtResource("3_uchm4")
+bus = &"SFX"
 
 [node name="platform_crumble" type="AudioStreamPlayer2D" parent="." unique_id=794750577]
 stream = ExtResource("4_hk8yq")
 volume_db = -8.0
+bus = &"SFX"
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

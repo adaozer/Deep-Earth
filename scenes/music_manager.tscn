@@ -1,8 +1,14 @@
 [gd_scene format=3 uid="uid://dp18chw4y10hr"]
 
 [ext_resource type="AudioStream" uid="uid://d30pr3gr47faj" path="res://assets/sounds/game_bg.ogg" id="1_tn5dr"]
+[ext_resource type="AudioStream" uid="uid://b2ewgk14cjdin" path="res://assets/sounds/menu_select.mp3" id="2_hetdf"]
 
 [node name="music_manager" type="Node" unique_id=1994699869]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2051552922]
 stream = ExtResource("1_tn5dr")
+bus = &"Music"
+
+[node name="click" type="AudioStreamPlayer" parent="." unique_id=1462715576]
+stream = ExtResource("2_hetdf")
+bus = &"SFX"

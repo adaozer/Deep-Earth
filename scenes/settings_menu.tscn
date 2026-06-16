@@ -1,0 +1,141 @@
+[gd_scene format=3 uid="uid://vdf6pw60wefo"]
+
+[ext_resource type="Script" uid="uid://duq411e4qxwws" path="res://scripts/settings_menu.gd" id="1_05p07"]
+[ext_resource type="FontFile" uid="uid://cc06glcceycu6" path="res://assets/font/Dekartaretro.ttf" id="2_cr101"]
+[ext_resource type="Texture2D" uid="uid://cy4b0g3o7ypw5" path="res://assets/bg_assets/cave_bg.png" id="2_wswnh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wswnh"]
+content_margin_left = 24.0
+content_margin_top = 12.0
+content_margin_right = 24.0
+content_margin_bottom = 12.0
+bg_color = Color(0.3529412, 0.29411766, 0.011764706, 0.4392157)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_labj1"]
+bg_color = Color(0.53333336, 0.4509804, 0.02745098, 0.4392157)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lwwgp"]
+content_margin_left = 24.0
+content_margin_top = 12.0
+content_margin_right = 24.0
+content_margin_bottom = 12.0
+bg_color = Color(0.3529412, 0.29411766, 0.011764706, 0.4392157)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bgjg7"]
+bg_color = Color(0.53333336, 0.4509804, 0.02745098, 0.4392157)
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1298361368]
+
+[node name="settings_menu" type="Control" parent="." unique_id=112506100]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_05p07")
+
+[node name="backdrop" type="TextureRect" parent="settings_menu" unique_id=1191631280]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1240.0
+offset_bottom = 680.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_wswnh")
+expand_mode = 1
+
+[node name="ColorRect" type="ColorRect" parent="settings_menu/backdrop" unique_id=2088090290]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.39215687)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="settings_menu" unique_id=1979738783]
+layout_mode = 0
+offset_left = 320.0
+offset_top = 180.0
+offset_right = 960.0
+offset_bottom = 540.0
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="Settings" type="Label" parent="settings_menu/VBoxContainer" unique_id=149197646]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_cr101")
+theme_override_font_sizes/font_size = 64
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="Background Music" type="Label" parent="settings_menu/VBoxContainer" unique_id=1834320029]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_cr101")
+theme_override_font_sizes/font_size = 32
+text = "Background Music"
+horizontal_alignment = 1
+
+[node name="bg_slider" type="HSlider" parent="settings_menu/VBoxContainer" unique_id=307327110]
+layout_mode = 2
+
+[node name="SFX" type="Label" parent="settings_menu/VBoxContainer" unique_id=1489588510]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_cr101")
+theme_override_font_sizes/font_size = 32
+text = "SFX"
+horizontal_alignment = 1
+
+[node name="sfx_slider" type="HSlider" parent="settings_menu/VBoxContainer" unique_id=798055676]
+layout_mode = 2
+
+[node name="Controls" type="Button" parent="settings_menu/VBoxContainer" unique_id=1362754966]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_cr101")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_wswnh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_labj1")
+text = "Controls"
+
+[node name="Back" type="Button" parent="settings_menu/VBoxContainer" unique_id=2015494624]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_cr101")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_lwwgp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_bgjg7")
+text = "Back"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="settings_menu" unique_id=725534901]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Controls" type="Label" parent="settings_menu/VBoxContainer2" unique_id=1768435818]
+layout_mode = 2
+text = "Controls"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="settings_menu/VBoxContainer2" unique_id=840216263]
+layout_mode = 2
+
+[node name="action_name" type="Label" parent="settings_menu/VBoxContainer2/HBoxContainer" unique_id=572752214]
+layout_mode = 2
+
+[node name="current_bind" type="Button" parent="settings_menu/VBoxContainer2/HBoxContainer" unique_id=1577377450]
+layout_mode = 2
+
+[node name="Back" type="Button" parent="settings_menu/VBoxContainer2" unique_id=2061274957]
+layout_mode = 2
+text = "Back"

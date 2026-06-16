@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://cy4b0g3o7ypw5" path="res://assets/bg_assets/cave_bg.png" id="2_bqqt6"]
 [ext_resource type="FontFile" uid="uid://cc06glcceycu6" path="res://assets/font/Dekartaretro.ttf" id="3_8ln24"]
 [ext_resource type="AudioStream" uid="uid://bss6t6fi6vmnu" path="res://assets/sounds/menu_bg.mp3" id="3_wu84c"]
-[ext_resource type="AudioStream" uid="uid://b2ewgk14cjdin" path="res://assets/sounds/menu_select.mp3" id="5_8ln24"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rtw2f"]
 content_margin_left = 24.0
@@ -47,8 +46,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 1243.0
-offset_bottom = 688.0
+offset_right = 1240.0
+offset_bottom = 680.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_bqqt6")
@@ -59,8 +58,6 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -3.0
-offset_bottom = -8.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.39215687)
@@ -91,7 +88,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_rtw2f")
 theme_override_styles/hover = SubResource("StyleBoxFlat_wu84c")
 text = "Start"
 
-[node name="Play2" type="Button" parent="VBoxContainer" unique_id=268921313]
+[node name="Settings" type="Button" parent="VBoxContainer" unique_id=268921313]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_8ln24")
 theme_override_font_sizes/font_size = 32
@@ -110,6 +107,4 @@ text = "Quit "
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=502438072]
 stream = ExtResource("3_wu84c")
 autoplay = true
-
-[node name="click" type="AudioStreamPlayer" parent="." unique_id=1906904781]
-stream = ExtResource("5_8ln24")
+bus = &"Music"
