@@ -19,6 +19,7 @@ func _ready() -> void:
 	$VBoxContainer/Controls.pressed.connect(_on_controls_pressed)
 	$VBoxContainer/Back.pressed.connect(_on_back_pressed)
 	$VBoxContainer2/Back.pressed.connect(_on_controls_back_pressed)
+	$VBoxContainer/RestoreDefaults.pressed.connect(_on_restore_defaults_pressed)
 	
 	$VBoxContainer2.visible = false
 	_build_controls_panel()
@@ -85,12 +86,23 @@ func _get_action_key(action: String) -> String:
 func _input(event):
 	if listening_for_action == "":
 		return
-	if event is InputEventKey and event.pressed:
+	if (event is InputEventKey and event.pressed) or (event is InputEventMouseButton and event.pressed):
+		for action in ACTIONS:
+			if action == listening_for_action:
+				continue
+			var events = InputMap.action_get_events(action)
+			for existing in events:
+				if existing is InputEventKey and event is InputEventKey:
+					if existing.keycode == event.keycode:
+						InputMap.action_erase_events(action)
+						action_buttons[action].text = "Unbound"
+				elif existing is InputEventMouseButton and event is InputEventMouseButton:
+					if existing.button_index == event.button_index:
+						InputMap.action_erase_events(action)
+						action_buttons[action].text = "Unbound"
 		InputMap.action_erase_events(listening_for_action)
 		InputMap.action_add_event(listening_for_action, event)
 		action_buttons[listening_for_action].text = event.as_text().replace(" - Physical", "")
-		#for a in action_buttons:
-		#	action_buttons[a].disabled = false
 		listening_for_action = ""
 		get_viewport().set_input_as_handled()
 		SaveManager.save_settings(
@@ -98,24 +110,10 @@ func _input(event):
 			AudioServer.get_bus_volume_db(AudioServer.get_bus_index("SFX")),
 			action_buttons
 		)
-	elif event is InputEventMouseButton and event.pressed:
-		InputMap.action_erase_events(listening_for_action)
-		InputMap.action_add_event(listening_for_action, event)
-		action_buttons[listening_for_action].text = "Mouse " + str(event.button_index)
-		listening_for_action = ""
-		get_viewport().set_input_as_handled()
-		SaveManager.save_settings(
-		AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music")),
-		AudioServer.get_bus_volume_db(AudioServer.get_bus_index("SFX")),
-		action_buttons
-		)
-		
+
 func _on_rebind_pressed(action: String, button: Button):
 	listening_for_action = action
 	button.text = "Press any key"
-	#for a in action_buttons:
-	#	if a != action:
-	#		action_buttons[a].disabled = true
 
 func _on_bg_volume_changed(value: float):
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), value)
@@ -124,6 +122,19 @@ func _on_bg_volume_changed(value: float):
 	action_buttons
 	)
 
+func _on_restore_defaults_pressed():
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), 0.0)
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), 0.0)
+	$VBoxContainer/bg_slider.value = 0.0
+	$VBoxContainer/sfx_slider.value = 0.0
+	
+	InputMap.load_from_project_settings()
+	
+	for action in action_buttons:
+		action_buttons[action].text = _get_action_key(action)
+	
+	SaveManager.save_settings(0.0, 0.0, action_buttons)
+	
 func _on_sfx_volume_changed(value: float):
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), value)
 	SaveManager.save_settings(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music")),

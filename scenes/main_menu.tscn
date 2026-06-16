@@ -80,13 +80,21 @@ theme_override_font_sizes/font_size = 64
 text = "Deep Earth"
 horizontal_alignment = 1
 
-[node name="Play" type="Button" parent="VBoxContainer" unique_id=62880301]
+[node name="NewGame" type="Button" parent="VBoxContainer" unique_id=62880301]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_8ln24")
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxFlat_rtw2f")
 theme_override_styles/hover = SubResource("StyleBoxFlat_wu84c")
-text = "Start"
+text = "New Game"
+
+[node name="LoadGame" type="Button" parent="VBoxContainer" unique_id=395859911]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_8ln24")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_rtw2f")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wu84c")
+text = "Load Game"
 
 [node name="Settings" type="Button" parent="VBoxContainer" unique_id=268921313]
 layout_mode = 2

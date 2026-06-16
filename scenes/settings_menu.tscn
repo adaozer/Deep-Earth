@@ -123,6 +123,14 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_wswnh")
 theme_override_styles/hover = SubResource("StyleBoxFlat_labj1")
 text = "Controls"
 
+[node name="RestoreDefaults" type="Button" parent="settings_menu/VBoxContainer" unique_id=167055280]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_cr101")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_wswnh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_labj1")
+text = "Restore Defaults"
+
 [node name="Back" type="Button" parent="settings_menu/VBoxContainer" unique_id=2015494624]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_cr101")
