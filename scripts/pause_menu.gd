@@ -28,6 +28,7 @@ func _on_settings_pressed():
 	
 func _on_quit_pressed():
 	MusicManager.get_node("click").play()
+	MusicManager.get_node("AudioStreamPlayer").stop()
 	get_tree().paused = false
 	visible = false
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")

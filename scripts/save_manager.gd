@@ -1,0 +1,46 @@
+extends Node
+
+const SAVE_PATH = "user://save.cfg"
+var config = ConfigFile.new()
+
+func _ready():
+	load_save()
+	get_tree().root.child_entered_tree.connect(func(node):
+		await get_tree().process_frame
+		var scene = get_tree().current_scene
+		if scene and scene.scene_file_path.contains("level"):
+			save_progress(scene.scene_file_path)
+	)
+func save_settings(music_vol: float, sfx_vol: float, bindings: Dictionary):
+	config.set_value("settings", "music_volume", music_vol)
+	config.set_value("settings", "sfx_volume", sfx_vol)
+	for action in bindings:
+		var event = InputMap.action_get_events(action)
+		if event.size() > 0 and event[0] is InputEventKey:
+			config.set_value("bindings", action, event[0].keycode)
+	config.save(SAVE_PATH)
+ 	
+func save_progress(level_path : String):
+	config.set_value("progress", "last_level", level_path)
+	config.save(SAVE_PATH)
+	
+func load_save():
+	var err = config.load(SAVE_PATH)
+	if err != OK:
+		return
+		
+	var music_vol = config.get_value("settings", "music_volume", 0.0)
+	var sfx_vol =  config.get_value("settings", "sfx_volume", 0.0)
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), music_vol)
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), sfx_vol)
+	
+	for action in ["left", "right", "jump", "phase", "grab"]:
+		if config.has_section_key("bindings", action):
+			var keycode = config.get_value("bindings", action)
+			var event = InputEventKey.new()
+			event.keycode = keycode
+			InputMap.action_erase_events(action)
+			InputMap.action_add_event(action, event)
+	
+func get_last_level() -> String:
+	return config.get_value("progress", "last_level", "res://scenes/level1.tscn")

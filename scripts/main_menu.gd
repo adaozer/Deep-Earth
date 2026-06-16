@@ -9,7 +9,11 @@ func _ready() -> void:
 
 func _on_play_pressed():
 	MusicManager.get_node("click").play()
-	get_tree().change_scene_to_file("res://scenes/level1.tscn")
+	var music = MusicManager.get_node("AudioStreamPlayer")
+	if not music.playing:
+		music.play()
+	var last_level = SaveManager.get_last_level()
+	get_tree().change_scene_to_file(last_level)
 	
 func _on_settings_pressed():
 	MusicManager.get_node("click").play()
