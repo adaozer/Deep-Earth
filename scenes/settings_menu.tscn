@@ -104,6 +104,7 @@ horizontal_alignment = 1
 
 [node name="bg_slider" type="HSlider" parent="settings_menu/VBoxContainer" unique_id=307327110]
 layout_mode = 2
+step = 0.01
 
 [node name="SFX" type="Label" parent="settings_menu/VBoxContainer" unique_id=1489588510]
 layout_mode = 2
@@ -114,6 +115,7 @@ horizontal_alignment = 1
 
 [node name="sfx_slider" type="HSlider" parent="settings_menu/VBoxContainer" unique_id=798055676]
 layout_mode = 2
+step = 0.01
 
 [node name="Controls" type="Button" parent="settings_menu/VBoxContainer" unique_id=1362754966]
 layout_mode = 2

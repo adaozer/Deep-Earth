@@ -7,12 +7,12 @@ var my_font = load("res://assets/font/Dekartaretro.ttf")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	visible = false
-	$VBoxContainer/bg_slider.min_value = -40.0
-	$VBoxContainer/bg_slider.max_value = 40.0
-	$VBoxContainer/bg_slider.value = 0.0
-	$VBoxContainer/sfx_slider.min_value = -40.0
-	$VBoxContainer/sfx_slider.max_value = 40.0
-	$VBoxContainer/sfx_slider.value = 0.0
+	$VBoxContainer/bg_slider.min_value = 0.0
+	$VBoxContainer/bg_slider.max_value = 1.0
+	$VBoxContainer/bg_slider.value = 0.5
+	$VBoxContainer/sfx_slider.min_value = 0.0
+	$VBoxContainer/sfx_slider.max_value = 1.0
+	$VBoxContainer/sfx_slider.value = 0.5
 
 	$VBoxContainer/bg_slider.value_changed.connect(_on_bg_volume_changed)
 	$VBoxContainer/sfx_slider.value_changed.connect(_on_sfx_volume_changed)
@@ -107,8 +107,8 @@ func _input(event):
 		listening_for_action = ""
 		get_viewport().set_input_as_handled()
 		SaveManager.save_settings(
-			AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music")),
-			AudioServer.get_bus_volume_db(AudioServer.get_bus_index("SFX")),
+			$VBoxContainer/bg_slider.value,
+			$VBoxContainer/sfx_slider.value,
 			action_buttons
 		)
 
@@ -117,30 +117,32 @@ func _on_rebind_pressed(action: String, button: Button):
 	button.text = "Press any key"
 
 func _on_bg_volume_changed(value: float):
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), value)
+	var db = linear_to_db(value) if value > 0 else -80.0
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), db)
 	SaveManager.save_settings(value, 
-	AudioServer.get_bus_volume_db(AudioServer.get_bus_index("SFX")),
+	$VBoxContainer/sfx_slider.value,
 	action_buttons
 	)
 
 func _on_restore_defaults_pressed():
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), 0.0)
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), 0.0)
-	$VBoxContainer/bg_slider.value = 0.0
-	$VBoxContainer/sfx_slider.value = 0.0
-	SaveManager.save_settings(0.0, 0.0, action_buttons)
+	var db = linear_to_db(0.5)
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), db)
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), db)
+	$VBoxContainer/bg_slider.value = 0.5
+	$VBoxContainer/sfx_slider.value = 0.5
+	SaveManager.save_settings(0.5, 0.5, action_buttons)
 
 func _on_restore_defaults_controls_pressed():
 	InputMap.load_from_project_settings()
 	for action in action_buttons:
 		action_buttons[action].text = _get_action_key(action)
-	SaveManager.save_settings(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music")), 
-	AudioServer.get_bus_volume_db(AudioServer.get_bus_index("SFX")), 
+	SaveManager.save_settings($VBoxContainer/bg_slider.value, $VBoxContainer/sfx_slider.value, 
 	action_buttons)
 	
 func _on_sfx_volume_changed(value: float):
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), value)
-	SaveManager.save_settings(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music")),
+	var db = linear_to_db(value) if value > 0 else -80.0
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), db)
+	SaveManager.save_settings($VBoxContainer/bg_slider.value,
 	value, 
 	action_buttons)
 
@@ -181,8 +183,12 @@ func open(from: String):
 	$VBoxContainer2.visible = false
 	$backdrop.visible = (from == "main_menu")
 	
-	$VBoxContainer/bg_slider.value = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music"))
-	$VBoxContainer/sfx_slider.value = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("SFX"))
+	if SaveManager.has_settings():
+		$VBoxContainer/bg_slider.value = db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music")))
+		$VBoxContainer/sfx_slider.value = db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("SFX")))
+	else:
+		$VBoxContainer/bg_slider.value = 0.5
+		$VBoxContainer/sfx_slider.value = 0.5
 	
 	if from == "main_menu":
 		get_tree().get_root().get_node("main_menu").visible = false
