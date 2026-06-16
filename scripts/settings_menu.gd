@@ -20,6 +20,7 @@ func _ready() -> void:
 	$VBoxContainer/Back.pressed.connect(_on_back_pressed)
 	$VBoxContainer2/Back.pressed.connect(_on_controls_back_pressed)
 	$VBoxContainer/RestoreDefaults.pressed.connect(_on_restore_defaults_pressed)
+	$VBoxContainer2/RestoreDefaultsControls.pressed.connect(_on_restore_defaults_controls_pressed)
 	
 	$VBoxContainer2.visible = false
 	_build_controls_panel()
@@ -74,7 +75,7 @@ func _build_controls_panel():
 		hbox.add_child(label)
 		hbox.add_child(button)
 		$VBoxContainer2.add_child(hbox)
-		$VBoxContainer2.move_child(hbox, $VBoxContainer2.get_child_count() - 2)
+		$VBoxContainer2.move_child(hbox, $VBoxContainer2.get_child_count() - 3)
 	
 func _get_action_key(action: String) -> String:
 	var events = InputMap.action_get_events(action)
@@ -127,13 +128,15 @@ func _on_restore_defaults_pressed():
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), 0.0)
 	$VBoxContainer/bg_slider.value = 0.0
 	$VBoxContainer/sfx_slider.value = 0.0
-	
+	SaveManager.save_settings(0.0, 0.0, action_buttons)
+
+func _on_restore_defaults_controls_pressed():
 	InputMap.load_from_project_settings()
-	
 	for action in action_buttons:
 		action_buttons[action].text = _get_action_key(action)
-	
-	SaveManager.save_settings(0.0, 0.0, action_buttons)
+	SaveManager.save_settings(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music")), 
+	AudioServer.get_bus_volume_db(AudioServer.get_bus_index("SFX")), 
+	action_buttons)
 	
 func _on_sfx_volume_changed(value: float):
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), value)

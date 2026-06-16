@@ -142,9 +142,9 @@ text = "Back"
 [node name="VBoxContainer2" type="VBoxContainer" parent="settings_menu" unique_id=725534901]
 layout_mode = 0
 offset_left = 320.0
-offset_top = 180.0
+offset_top = 90.0
 offset_right = 960.0
-offset_bottom = 540.0
+offset_bottom = 450.0
 theme_override_constants/separation = 16
 alignment = 1
 
@@ -163,6 +163,14 @@ layout_mode = 2
 
 [node name="current_bind" type="Button" parent="settings_menu/VBoxContainer2/HBoxContainer" unique_id=1577377450]
 layout_mode = 2
+
+[node name="RestoreDefaultsControls" type="Button" parent="settings_menu/VBoxContainer2" unique_id=251961633]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_cr101")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_48ojb")
+theme_override_styles/hover = SubResource("StyleBoxFlat_n35ux")
+text = "Restore Defaults"
 
 [node name="Back" type="Button" parent="settings_menu/VBoxContainer2" unique_id=2061274957]
 layout_mode = 2
