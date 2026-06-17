@@ -11,11 +11,11 @@ func _unhandled_input(event):
 	if event.is_action_pressed("pause"):
 		var current_scene = get_tree().current_scene.scene_file_path
 		if current_scene != "res://scenes/main_menu.tscn":
+			MusicManager.get_node("click").play()
 			toggle_pause()
 		
 func toggle_pause():
 	visible = !visible
-	print(visible)
 	get_tree().paused = visible
 	
 func _on_resume_pressed():

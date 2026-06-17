@@ -138,11 +138,11 @@ func _process_swing(delta: float) -> void:
 func die(sound: String = "spike"):
 	if is_dead:
 		return
-	is_dead = true
+	is_dead = true 
 	set_physics_process(false)
 	if sound == "slime":
 		$slime_death_sound.play()
 	else:
 		$spike_death_sound.play()
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(0.3).timeout
 	get_tree().reload_current_scene()
