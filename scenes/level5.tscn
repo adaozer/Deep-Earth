@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bvcis01c3fwam" path="res://scenes/vine.tscn" id="10_ylt8s"]
 [ext_resource type="PackedScene" uid="uid://66ho5vfjtihe" path="res://scenes/level_transition.tscn" id="11_7eo2k"]
 [ext_resource type="PackedScene" uid="uid://0pk560rgv22i" path="res://scenes/crumbling_platform.tscn" id="12_54swg"]
+[ext_resource type="PackedScene" uid="uid://dxk3q7m8bdslf" path="res://scenes/follower.tscn" id="13_teump"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d3jkd"]
 texture = ExtResource("1_thmvh")
@@ -273,5 +274,8 @@ next_scene = "level2"
 
 [node name="crumbling_platform" parent="." unique_id=918225734 instance=ExtResource("12_54swg")]
 position = Vector2(1983, 700)
+
+[node name="follower" parent="." unique_id=788871206 instance=ExtResource("13_teump")]
+position = Vector2(68, 632)
 
 [editable path="player"]

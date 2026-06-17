@@ -1,30 +1,30 @@
-[gd_scene format=3 uid="uid://d05nefwya2d88"]
+[gd_scene format=3 uid="uid://dxk3q7m8bdslf"]
 
-[ext_resource type="Script" uid="uid://ln6yq3jrpast" path="res://scripts/crawler.gd" id="1_w62u4"]
-[ext_resource type="Texture2D" uid="uid://de7dg7htaygmb" path="res://assets/slime/slime_f1.png" id="2_kaw6r"]
-[ext_resource type="Texture2D" uid="uid://cph0idqcoxfrl" path="res://assets/slime/slime_f2.png" id="3_0m443"]
-[ext_resource type="Texture2D" uid="uid://bemx8bkq8vxec" path="res://assets/slime/slime_f3.png" id="4_pg85k"]
-[ext_resource type="Texture2D" uid="uid://cx5cufvhamiyp" path="res://assets/slime/slime_f4.png" id="5_wutyo"]
-[ext_resource type="Texture2D" uid="uid://dk2cc3gr0lico" path="res://assets/slime/slime_f5.png" id="6_jvisr"]
-[ext_resource type="AudioStream" uid="uid://cfhsm12d67fxn" path="res://assets/sounds/slime_move.wav" id="7_0m443"]
+[ext_resource type="Script" uid="uid://bjf5pjuytu3gn" path="res://scripts/follower.gd" id="1_uht3p"]
+[ext_resource type="Texture2D" uid="uid://de7dg7htaygmb" path="res://assets/slime/slime_f1.png" id="2_yyq4d"]
+[ext_resource type="Texture2D" uid="uid://cph0idqcoxfrl" path="res://assets/slime/slime_f2.png" id="3_w6uey"]
+[ext_resource type="Texture2D" uid="uid://bemx8bkq8vxec" path="res://assets/slime/slime_f3.png" id="4_khyxv"]
+[ext_resource type="Texture2D" uid="uid://cx5cufvhamiyp" path="res://assets/slime/slime_f4.png" id="5_8poyj"]
+[ext_resource type="Texture2D" uid="uid://dk2cc3gr0lico" path="res://assets/slime/slime_f5.png" id="6_jykca"]
+[ext_resource type="AudioStream" uid="uid://cfhsm12d67fxn" path="res://assets/sounds/slime_move.wav" id="7_jj3cr"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xdvhm"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_kaw6r")
+"texture": ExtResource("2_yyq4d")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_0m443")
+"texture": ExtResource("3_w6uey")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_pg85k")
+"texture": ExtResource("4_khyxv")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_wutyo")
+"texture": ExtResource("5_8poyj")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_jvisr")
+"texture": ExtResource("6_jykca")
 }],
 "loop": true,
 "name": &"walk",
@@ -39,11 +39,10 @@ height = 16.0
 radius = 5.6666665
 height = 18.0
 
-[node name="crawler" type="CharacterBody2D" unique_id=788871206]
+[node name="follower" type="CharacterBody2D" unique_id=788871206]
 texture_filter = 1
 scale = Vector2(3, 3)
-script = ExtResource("1_w62u4")
-metadata/_edit_vertical_guides_ = [27.0]
+script = ExtResource("1_uht3p")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=901456893]
 sprite_frames = SubResource("SpriteFrames_xdvhm")
@@ -63,6 +62,6 @@ rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_kaw6r")
 
 [node name="move" type="AudioStreamPlayer2D" parent="." unique_id=1834879673]
-stream = ExtResource("7_0m443")
+stream = ExtResource("7_jj3cr")
 volume_db = -15.0
 bus = &"SFX"
