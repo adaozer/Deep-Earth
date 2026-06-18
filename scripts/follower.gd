@@ -1,11 +1,14 @@
 extends CharacterBody2D
 
-@export var follow_delay: float = 1.0
+@export var follow_delay: float = 1.25
 var bt: BTNode
 var position_history: Array = []
 var activated: bool = false
 var start_position: Vector2
+var last_player_pos: Vector2
+var pos_initialised: bool = false
 var player: Node2D
+var total_movement: float = 0.0
 
 func _ready():
 	$hitbox.body_entered.connect(_on_hitbox_body_entered)
@@ -26,16 +29,20 @@ func build_tree() -> BTNode:
 	
 func _physics_process(delta: float) -> void:
 	if player:
-		if not activated and player.velocity.length() > 1:
+		if not pos_initialised:
+			last_player_pos = player.global_position
+			pos_initialised = true
+		total_movement += abs(player.global_position.x - last_player_pos.x)
+		if not activated and total_movement > 100:
 			activated = true
-		if activated:
-			position_history.append({
-				"pos": player.global_position,
-				"time": Time.get_ticks_msec() / 1000.0
-			})
-			var cutoff = Time.get_ticks_msec() / 1000.0 - follow_delay
-			while position_history.size() > 0 and position_history[0]["time"] < cutoff:
-				position_history.pop_front()
+		last_player_pos = player.global_position
+		position_history.append({
+			"pos": player.global_position,
+			"time": Time.get_ticks_msec() / 1000.0
+					})
+		var cutoff = Time.get_ticks_msec() / 1000.0 - follow_delay
+		while position_history.size() > 0 and position_history[0]["time"] < cutoff:
+			position_history.pop_front()
 	bt.tick(self)
 	
 func chase():
@@ -52,7 +59,7 @@ func chase():
 	global_position = target
 	
 func has_target() -> bool:
-	return position_history.size() > 0 and player != null
+	return activated and position_history.size() > 0 and player != null
 	
 func idle():
 	velocity = Vector2.ZERO
