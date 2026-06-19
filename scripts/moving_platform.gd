@@ -5,6 +5,7 @@ extends AnimatableBody2D
 @export var horizontal: bool = true
 
 var start_position: Vector2
+var elapsed: float = 0.0
 
 func _ready():
 	call_deferred("_init_position")
@@ -14,7 +15,8 @@ func _init_position():
 	start_position = global_position
 
 func _physics_process(delta: float) -> void:
-	var offset = sin(Time.get_ticks_msec() / 1000.0 * move_speed) * move_distance
+	elapsed += delta
+	var offset = sin(elapsed * move_speed) * move_distance
 	if horizontal:
 		global_position = start_position + Vector2(offset, 0)
 	else:

@@ -1,0 +1,58 @@
+[gd_resource type="TileSet" format=3 uid="uid://c4h5i4rcwujjt"]
+
+[ext_resource type="Texture2D" uid="uid://dk1sc4f23acf2" path="res://assets/tileset/Tileset.png" id="1_evnf1"]
+[ext_resource type="Texture2D" uid="uid://cukybsergpf2p" path="res://assets/StrangeUndergroundPlatformer/Sorted/Backgrounds/BG1.png" id="2_h0vvs"]
+[ext_resource type="Texture2D" uid="uid://c230c0u75vret" path="res://assets/StrangeUndergroundPlatformer/Sorted/Backgrounds/BG2.png" id="3_x4vpb"]
+[ext_resource type="Texture2D" uid="uid://dp23riyaaeljq" path="res://assets/StrangeUndergroundPlatformer/Sorted/Backgrounds/BG3.png" id="4_g1bt4"]
+[ext_resource type="Texture2D" uid="uid://csp58x37vinx7" path="res://assets/StrangeUndergroundPlatformer/Sorted/Backgrounds/BG4.png" id="5_6g5ef"]
+[ext_resource type="Texture2D" uid="uid://c1c1aeukosdkt" path="res://assets/StrangeUndergroundPlatformer/Sorted/Backgrounds/BG5.png" id="6_dqdgc"]
+[ext_resource type="Texture2D" uid="uid://cgtj61omk5mw5" path="res://assets/StrangeUndergroundPlatformer/Sorted/Backgrounds/BG6.png" id="7_nj5hl"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1ry6d"]
+texture = ExtResource("1_evnf1")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_od165"]
+texture = ExtResource("2_h0vvs")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j1p0d"]
+texture = ExtResource("3_x4vpb")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_av2ji"]
+texture = ExtResource("4_g1bt4")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tgpqh"]
+texture = ExtResource("5_6g5ef")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3gmtc"]
+texture = ExtResource("6_dqdgc")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x7ngq"]
+texture = ExtResource("7_nj5hl")
+0:0/0 = 0
+
+[resource]
+sources/0 = SubResource("TileSetAtlasSource_1ry6d")
+sources/1 = SubResource("TileSetAtlasSource_od165")
+sources/2 = SubResource("TileSetAtlasSource_j1p0d")
+sources/3 = SubResource("TileSetAtlasSource_av2ji")
+sources/4 = SubResource("TileSetAtlasSource_tgpqh")
+sources/5 = SubResource("TileSetAtlasSource_3gmtc")
+sources/6 = SubResource("TileSetAtlasSource_x7ngq")

@@ -55,7 +55,7 @@ func chase():
 	var target = position_history[0]["pos"]
 	var dir = target - global_position
 	if abs(dir.x) > 1:
-		$AnimatedSprite2D.flip_h = dir.x < 0
+		$AnimatedSprite2D.flip_h = dir.x > 0
 	global_position = target
 	
 func has_target() -> bool:

@@ -1,65 +1,67 @@
 [gd_scene format=3 uid="uid://dxk3q7m8bdslf"]
 
 [ext_resource type="Script" uid="uid://bjf5pjuytu3gn" path="res://scripts/follower.gd" id="1_uht3p"]
-[ext_resource type="Texture2D" uid="uid://de7dg7htaygmb" path="res://assets/slime/slime_f1.png" id="2_yyq4d"]
-[ext_resource type="Texture2D" uid="uid://cph0idqcoxfrl" path="res://assets/slime/slime_f2.png" id="3_w6uey"]
-[ext_resource type="Texture2D" uid="uid://bemx8bkq8vxec" path="res://assets/slime/slime_f3.png" id="4_khyxv"]
-[ext_resource type="Texture2D" uid="uid://cx5cufvhamiyp" path="res://assets/slime/slime_f4.png" id="5_8poyj"]
-[ext_resource type="Texture2D" uid="uid://dk2cc3gr0lico" path="res://assets/slime/slime_f5.png" id="6_jykca"]
+[ext_resource type="Texture2D" uid="uid://t80jo08jos1l" path="res://assets/StrangeUndergroundPlatformer/Sorted/Enemies&Spikes/Ghosts.png" id="2_6u40d"]
 [ext_resource type="AudioStream" uid="uid://cfhsm12d67fxn" path="res://assets/sounds/slime_move.wav" id="7_jj3cr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7d0t1"]
+atlas = ExtResource("2_6u40d")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kj72y"]
+atlas = ExtResource("2_6u40d")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rom4e"]
+atlas = ExtResource("2_6u40d")
+region = Rect2(16, 16, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xdvhm"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_yyq4d")
+"texture": SubResource("AtlasTexture_7d0t1")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_w6uey")
+"texture": SubResource("AtlasTexture_kj72y")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_khyxv")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_8poyj")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_jykca")
+"texture": SubResource("AtlasTexture_rom4e")
 }],
 "loop": true,
-"name": &"walk",
-"speed": 8.0
+"name": &"new_animation",
+"speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ciepn"]
-radius = 5.0
-height = 16.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6u40d"]
+size = Vector2(30, 35)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kaw6r"]
-radius = 5.6666665
-height = 18.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uht3p"]
+size = Vector2(36.5, 31.999998)
 
 [node name="follower" type="CharacterBody2D" unique_id=788871206]
 texture_filter = 1
-scale = Vector2(3, 3)
+scale = Vector2(2, 2)
 script = ExtResource("1_uht3p")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=901456893]
+texture_filter = 1
+scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_xdvhm")
-animation = &"walk"
-autoplay = "walk"
+animation = &"new_animation"
+autoplay = "move"
+flip_h = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=898792433]
-position = Vector2(1.7763568e-15, 7.6666665)
-rotation = -1.5707964
-shape = SubResource("CapsuleShape2D_ciepn")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=666044246]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_6u40d")
 
 [node name="hitbox" type="Area2D" parent="." unique_id=331446068]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox" unique_id=1228425998]
-position = Vector2(-1.8947809e-14, 7.333333)
+position = Vector2(3.5762787e-07, 1.25)
 rotation = 1.5707964
-shape = SubResource("CapsuleShape2D_kaw6r")
+shape = SubResource("RectangleShape2D_uht3p")
 
 [node name="move" type="AudioStreamPlayer2D" parent="." unique_id=1834879673]
 stream = ExtResource("7_jj3cr")

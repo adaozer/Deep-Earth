@@ -1,20 +1,22 @@
 [gd_scene format=3 uid="uid://p6di8lxfm0vk"]
 
 [ext_resource type="Script" uid="uid://x66cj3p71obc" path="res://scripts/moving_platform.gd" id="1_1tdcd"]
-[ext_resource type="Texture2D" uid="uid://b8kf3j70ubf8g" path="res://icon.svg" id="1_ms375"]
+[ext_resource type="Texture2D" uid="uid://72owaqx3n6ky" path="res://assets/StrangeUndergroundPlatformer/Sorted/ExtraSolidBlocks/MovingPlatform2.png" id="2_mb26n"]
 [ext_resource type="AudioStream" uid="uid://ccnjbsbfss3kc" path="res://assets/sounds/platform_move.wav" id="3_mb26n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1tdcd"]
-size = Vector2(123, 124)
+size = Vector2(145, 49)
 
 [node name="moving_platform" type="AnimatableBody2D" unique_id=2053038553]
 script = ExtResource("1_1tdcd")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=213268272]
-texture = ExtResource("1_ms375")
+texture_filter = 1
+scale = Vector2(3, 3)
+texture = ExtResource("2_mb26n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=671384755]
-position = Vector2(-0.5, 0)
+position = Vector2(-0.5, 0.5)
 shape = SubResource("RectangleShape2D_1tdcd")
 
 [node name="platform_move" type="AudioStreamPlayer2D" parent="." unique_id=463879313]

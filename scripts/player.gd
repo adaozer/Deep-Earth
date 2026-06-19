@@ -105,17 +105,18 @@ func try_grab_vine(anchor):
 	swing_length = global_position.distance_to(swing_anchor)
 	var offset = global_position - swing_anchor
 	swing_angle = atan2(offset.x, offset.y)
-	swing_angular_velocity = (velocity.x / swing_length) * 0.8
+	swing_angular_velocity = 2.5 if velocity.x > 0 else -2.5
 		
 func _process_swing(delta: float) -> void:
 	var was_negative = swing_angle < 0
-	swing_angular_velocity -= (SWING_SPEED * sin(swing_angle)) * delta
-	swing_angular_velocity *= pow(SWING_DAMPING, delta * 60)
-	
 	swing_angle += swing_angular_velocity * delta
-	swing_angle = clamp(swing_angle, -1.4, 1.4)
-	if abs(swing_angle) >= 1.4:
-		swing_angular_velocity *= -0.3
+	if swing_angle > 1.2:
+		swing_angle = 1.2
+		swing_angular_velocity *= -1
+	elif swing_angle < -1.2:
+		swing_angle = -1.2 
+		swing_angular_velocity *= -1
+		
 	if was_negative and swing_angle >= 0:
 		$swing_sound.play()
 	elif not was_negative and swing_angle < 0:
@@ -140,6 +141,7 @@ func die(sound: String = "spike"):
 		return
 	is_dead = true 
 	set_physics_process(false)
+	DialogueManager.force_close()
 	if sound == "slime":
 		$slime_death_sound.play()
 	else:
