@@ -34,10 +34,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6u40d"]
-size = Vector2(30, 35)
+size = Vector2(17.5, 17)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uht3p"]
-size = Vector2(36.5, 31.999998)
+size = Vector2(20.75, 20.5)
 
 [node name="follower" type="CharacterBody2D" unique_id=788871206]
 texture_filter = 1
@@ -46,20 +46,20 @@ script = ExtResource("1_uht3p")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=901456893]
 texture_filter = 1
-scale = Vector2(3, 3)
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_xdvhm")
 animation = &"new_animation"
 autoplay = "move"
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=666044246]
-position = Vector2(0, 1.5)
+position = Vector2(0.25, 2.5)
 shape = SubResource("RectangleShape2D_6u40d")
 
 [node name="hitbox" type="Area2D" parent="." unique_id=331446068]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox" unique_id=1228425998]
-position = Vector2(3.5762787e-07, 1.25)
+position = Vector2(0, 2.5)
 rotation = 1.5707964
 shape = SubResource("RectangleShape2D_uht3p")
 

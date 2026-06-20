@@ -25,20 +25,26 @@ func talk():
 	var phase_key = get_key_for("phase")
 	if dialogue_set == 0:
 		DialogueManager.start_dialogue([
-			"Welcome traveller to our kingdom!",
+			"Press E to read the dialogue",
+			"Welcome traveller to our kingdom, the Underworld!",
 			"Many have come before you, and many have failed",
 			"I hope you will be the one who succeeds",
 			"See those vines? If you're strong enough, you should be able to grab onto them with %s and swing across" % grab_key,
 			"And I'm sure you already know how to phase below surfaces with %s" % phase_key,
-			"Good luck! We are counting on you!" 
+			"Good luck! We are counting on you!",
 		])
 	elif dialogue_set == 1:
 		DialogueManager.start_dialogue([
-			"You again!",
-			"So you did make it this far..",
-			"I pray that you will overcome the challenges facing you next."
+			"This is where it all began",
+			"First it started with the plants",
+			"Then the living creatures",
+			"Now its spread to the structure of the Underworld itself",
+			"Now its consumed almost everything",
+			"And you can see it trying to reach the dirt above"
 		])
 	else:
 		DialogueManager.start_dialogue([
-			"GJ"
+			"I see you met a follower",
+			"They are agents of the corruption",
+			"You are getting close" 
 		])

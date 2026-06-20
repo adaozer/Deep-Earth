@@ -9,6 +9,7 @@ var last_player_pos: Vector2
 var pos_initialised: bool = false
 var player: Node2D
 var total_movement: float = 0.0
+var game_time: float = 0.0
 
 func _ready():
 	$hitbox.body_entered.connect(_on_hitbox_body_entered)
@@ -28,6 +29,7 @@ func build_tree() -> BTNode:
 	])
 	
 func _physics_process(delta: float) -> void:
+	game_time += delta
 	if player:
 		if not pos_initialised:
 			last_player_pos = player.global_position
@@ -38,9 +40,9 @@ func _physics_process(delta: float) -> void:
 		last_player_pos = player.global_position
 		position_history.append({
 			"pos": player.global_position,
-			"time": Time.get_ticks_msec() / 1000.0
+			"time": game_time
 					})
-		var cutoff = Time.get_ticks_msec() / 1000.0 - follow_delay
+		var cutoff = game_time - follow_delay
 		while position_history.size() > 0 and position_history[0]["time"] < cutoff:
 			position_history.pop_front()
 	bt.tick(self)

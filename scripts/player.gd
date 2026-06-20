@@ -20,7 +20,7 @@ const FOOTSTEP_INTERVAL = 0.3
 
 func _ready():
 	$Camera2D.reset_smoothing()
-	
+
 func set_animation(anim: String) -> void:
 	if animated_sprite_2d.animation != anim or not animated_sprite_2d.is_playing():
 		animated_sprite_2d.play(anim)
@@ -84,7 +84,6 @@ func _physics_process(delta: float) -> void:
 	if available_vine and Input.is_action_just_pressed("grab") and not swinging:
 		try_grab_vine(available_vine)
 
-		
 	if direction == 1.0:
 		animated_sprite_2d.flip_h = false
 	elif direction == -1.0:
