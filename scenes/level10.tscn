@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://l5hve1wbl7mg" path="res://scenes/player.tscn" id="4_aogdp"]
 [ext_resource type="PackedScene" uid="uid://66ho5vfjtihe" path="res://scenes/level_transition.tscn" id="5_k5h51"]
 [ext_resource type="PackedScene" uid="uid://p6di8lxfm0vk" path="res://scenes/moving_platform.tscn" id="6_u8tnu"]
-[ext_resource type="PackedScene" uid="uid://bvcis01c3fwam" path="res://scenes/vine.tscn" id="7_47mrm"]
 [ext_resource type="PackedScene" uid="uid://veu3k07msfra" path="res://scenes/phase_spot.tscn" id="8_tvobc"]
 [ext_resource type="PackedScene" uid="uid://0pk560rgv22i" path="res://scenes/crumbling_platform.tscn" id="9_umsbi"]
 
@@ -30,28 +29,15 @@ tile_set = ExtResource("2_umsbi")
 [node name="foreground" type="TileMapLayer" parent="." unique_id=878991314]
 texture_filter = 1
 scale = Vector2(3, 3)
-tile_map_data = PackedByteArray("AAAlAAUABQAAAAAAAAAlAAEABAAAAAAAAAAlAAIABAAAAAAAAAAlAAMABAAAAAAAAAAlAAQABAAAAAAAAAADAA0AGAAAAAAAAAACAAMAAwAAAAAAAAAJAAMAAwAAAAAAAAASAAMAAwAAAAAAAAAXAAMAAwAAAAAAAAAFAA0ACgAAAAAAAAAGAA0ACgAAAAAAAAAEAA0ACwAAAAAAAAABAA0ADAAAAAAAAAACAA0ACgAAAAAAAAACAAEAFAAAAAAAAAADAAEAFAAAAAAAAAAEAAEAFAAAAAAAAAAZAAEAEwAAAAAAAAABAAEAHgAAAAAAAAAFAAEAHgAAAAAAAAAGAAEAHgAAAAAAAAAYAAEAHgAAAAAAAAAXAAEAHgAAAAAAAAAKAAEAAAAAAAAAAAAKAAIAAAAAAAEAAAALAAEAAAABAAAAAAALAAIAAAABAAEAAAAMAAEAAAACAAAAAAAMAAIAAAACAAEAAAANAAEAAAAEAAAAAAAOAAEAAAAFAAAAAAAPAAEAAAAGAAAAAAAPAAIAAAAGAAEAAAA=")
+tile_map_data = PackedByteArray("AAADAA0AGAAAAAAAAAACAAMAAwAAAAAAAAAJAAMAAwAAAAAAAAASAAMAAwAAAAAAAAAXAAMAAwAAAAAAAAAFAA0ACgAAAAAAAAAGAA0ACgAAAAAAAAAEAA0ACwAAAAAAAAABAA0ADAAAAAAAAAACAA0ACgAAAAAAAAACAAEAFAAAAAAAAAADAAEAFAAAAAAAAAAEAAEAFAAAAAAAAAAZAAEAEwAAAAAAAAABAAEAHgAAAAAAAAAFAAEAHgAAAAAAAAAGAAEAHgAAAAAAAAAYAAEAHgAAAAAAAAAXAAEAHgAAAAAAAAAKAAEAAAAAAAAAAAAKAAIAAAAAAAEAAAALAAEAAAABAAAAAAALAAIAAAABAAEAAAAMAAEAAAACAAAAAAAMAAIAAAACAAEAAAANAAEAAAAEAAAAAAAOAAEAAAAFAAAAAAAPAAEAAAAGAAAAAAAPAAIAAAAGAAEAAAA=")
 tile_set = ExtResource("3_wc41x")
 
 [node name="player" parent="." unique_id=2102019393 instance=ExtResource("4_aogdp")]
 position = Vector2(1138, 190)
 
-[node name="AnimatedSprite2D" parent="player" index="0" unique_id=1187531604]
-flip_h = true
-
-[node name="Camera2D" parent="player" index="2" unique_id=628416889]
-limit_right = 2560
-
-[node name="level_transition" parent="." unique_id=1763283473 instance=ExtResource("5_k5h51")]
-position = Vector2(2575, 573)
-next_scene = "level6"
-
 [node name="moving_platform" parent="." unique_id=2053038553 instance=ExtResource("6_u8tnu")]
 position = Vector2(872, 258)
 move_speed = 1.75
-
-[node name="vine" parent="." unique_id=1508631454 instance=ExtResource("7_47mrm")]
-position = Vector2(1797, 154)
 
 [node name="PhaseSpot" parent="." unique_id=1540337535 instance=ExtResource("8_tvobc")]
 position = Vector2(98, 625)
@@ -63,5 +49,3 @@ next_scene = "level11"
 
 [node name="crumbling_platform" parent="." unique_id=918225734 instance=ExtResource("9_umsbi")]
 position = Vector2(457, 593)
-
-[editable path="player"]

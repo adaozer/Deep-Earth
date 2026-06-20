@@ -10,7 +10,7 @@ func _ready() -> void:
 func _unhandled_input(event):
 	if event.is_action_pressed("pause"):
 		var current_scene = get_tree().current_scene.scene_file_path
-		if current_scene != "res://scenes/main_menu.tscn":
+		if current_scene != "res://scenes/main_menu.tscn" and current_scene != "res://scenes/ending_screen.tscn":
 			MusicManager.get_node("click").play()
 			toggle_pause()
 		

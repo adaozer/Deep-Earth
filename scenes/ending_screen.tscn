@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://b133ws6drxmn0"]
+
+[ext_resource type="Script" uid="uid://bdqi7q3w40ufo" path="res://scripts/ending_screen.gd" id="1_jkwpc"]
+[ext_resource type="Texture2D" uid="uid://cy4b0g3o7ypw5" path="res://assets/bg_assets/cave_bg.png" id="2_0joeg"]
+[ext_resource type="FontFile" uid="uid://cc06glcceycu6" path="res://assets/font/Dekartaretro.ttf" id="3_4313b"]
+[ext_resource type="AudioStream" uid="uid://bss6t6fi6vmnu" path="res://assets/sounds/menu_bg.mp3" id="4_qpc4k"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jkwpc"]
+content_margin_left = 24.0
+content_margin_top = 12.0
+content_margin_right = 24.0
+content_margin_bottom = 12.0
+bg_color = Color(0.3529412, 0.29411766, 0.011764706, 0.4392157)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0joeg"]
+bg_color = Color(0.53495467, 0.44975156, 0.02608552, 0.4392157)
+
+[node name="end_screen" type="Control" unique_id=697055386]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1284.0
+offset_bottom = 722.0
+script = ExtResource("1_jkwpc")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1127539573]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -4.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_0joeg")
+expand_mode = 1
+
+[node name="ColorRect" type="ColorRect" parent="TextureRect" unique_id=1665948183]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.39215687)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=30704122]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -372.0
+offset_top = -146.0
+offset_right = 372.0
+offset_bottom = 146.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1567504187]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.47783792, 0.23427278, 0.01500428, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_4313b")
+theme_override_font_sizes/font_size = 64
+text = "Thanks for playing!
+
+Credits:
+Assets - Itch io
+Everything Else - Me (Ada)"
+
+[node name="BackButton" type="Button" parent="VBoxContainer" unique_id=870414402]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_4313b")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_jkwpc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0joeg")
+text = "Back to Main Menu"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=502438072]
+stream = ExtResource("4_qpc4k")
+autoplay = true
+bus = &"Music"

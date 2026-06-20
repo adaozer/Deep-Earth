@@ -14,7 +14,6 @@ func _ready():
 
 func reset_progress():
 	config.erase_section_key("progress", "last_level")
-	config.erase_section("npcs")
 	config.save(SAVE_PATH)
 
 func has_save() -> bool:
@@ -63,11 +62,3 @@ func get_last_level() -> String:
 func has_settings() -> bool:
 	var test = ConfigFile.new()
 	return test.load(SAVE_PATH) == OK and test.has_section("settings")
-
-func has_met_at(npc_id: String) -> bool:
-	config.load(SAVE_PATH)
-	return config.get_value("npcs", npc_id, false)
-	
-func set_met_at(npc_id: String):
-	config.set_value("npcs", npc_id, true)
-	config.save(SAVE_PATH)

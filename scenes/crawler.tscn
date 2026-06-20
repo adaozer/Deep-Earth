@@ -42,6 +42,7 @@ height = 18.0
 [node name="crawler" type="CharacterBody2D" unique_id=788871206]
 texture_filter = 1
 scale = Vector2(3, 3)
+collision_layer = 4
 script = ExtResource("1_w62u4")
 metadata/_edit_vertical_guides_ = [27.0]
 

@@ -1,9 +1,7 @@
 extends Area2D
-@export var npc_id: String = "wanderer"
 @export var dialogue_set: int = 0
 var interacted: bool = false
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)
 
@@ -19,6 +17,7 @@ func get_key_for(action):
 		elif event is InputEventMouseButton:
 			return "Mouse " + str(event.button_index)
 	return "?"
+
 func talk():
 	interacted = true
 	var grab_key = get_key_for("grab")
@@ -26,7 +25,7 @@ func talk():
 	if dialogue_set == 0:
 		DialogueManager.start_dialogue([
 			"Press E to read the dialogue",
-			"Welcome traveller to our kingdom, the Underworld!",
+			"Welcome traveller, to our land below the Earth",
 			"Many have come before you, and many have failed",
 			"I hope you will be the one who succeeds",
 			"See those vines? If you're strong enough, you should be able to grab onto them with %s and swing across" % grab_key,
@@ -42,9 +41,15 @@ func talk():
 			"Now its consumed almost everything",
 			"And you can see it trying to reach the dirt above"
 		])
-	else:
+	elif dialogue_set == 2:
 		DialogueManager.start_dialogue([
 			"I see you met a follower",
 			"They are agents of the corruption",
 			"You are getting close" 
+		])
+	elif dialogue_set == 3:
+		DialogueManager.start_dialogue([
+			"Congratulations great adventurer",
+			"You saved this world, and the world above",
+			"We are thankful"
 		])
