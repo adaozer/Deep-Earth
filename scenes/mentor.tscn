@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://wa64sjlid5uq"]
 
 [ext_resource type="Script" uid="uid://bnvlhd38vxegl" path="res://scripts/mentor.gd" id="1_qep82"]
-[ext_resource type="Texture2D" uid="uid://dro245d25b2au" path="res://assets/StrangeUndergroundPlatformer/Sorted/Character.png" id="2_30sn5"]
+[ext_resource type="Texture2D" uid="uid://dro245d25b2au" path="res://assets/npc/Character.png" id="2_30sn5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qep82"]
 size = Vector2(41, 100)

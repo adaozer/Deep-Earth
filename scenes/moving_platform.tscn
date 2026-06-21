@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://p6di8lxfm0vk"]
 
 [ext_resource type="Script" uid="uid://x66cj3p71obc" path="res://scripts/moving_platform.gd" id="1_1tdcd"]
-[ext_resource type="Texture2D" uid="uid://72owaqx3n6ky" path="res://assets/StrangeUndergroundPlatformer/Sorted/ExtraSolidBlocks/MovingPlatform2.png" id="2_mb26n"]
+[ext_resource type="Texture2D" uid="uid://72owaqx3n6ky" path="res://assets/platforms/MovingPlatform2.png" id="2_mb26n"]
 [ext_resource type="AudioStream" uid="uid://ccnjbsbfss3kc" path="res://assets/sounds/platform_move.wav" id="3_mb26n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1tdcd"]

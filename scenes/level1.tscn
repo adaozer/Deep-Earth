@@ -47,4 +47,3 @@ next_scene = "level2"
 
 [node name="mentor" parent="." unique_id=1635754398 instance=ExtResource("8_bbk5w")]
 position = Vector2(174, 428)
-npc_id = "wanderer"
