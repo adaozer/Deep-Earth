@@ -1,4 +1,4 @@
-#Running Instructions:
+# Running Instructions:
 
 For opening the codebase, the game is made in Godot. Git cloning from the repo and importing it to Godot is enough.
 For launching the game, make sure that deep_earth.exe and deep_earth.pck are in the same directory. Then simply launch the exe. The game will create a save file at user://save.cfg
@@ -7,7 +7,7 @@ game back to default settings.
 
 Enjoy!
 
-#Assets:
+# Assets:
 
 Game Font: https://asemdjoworks.itch.io/dekartaretro-font
 
@@ -19,7 +19,7 @@ Player Character: https://craftpix.net/freebies/free-pixel-art-tiny-hero-sprites
 
 Uncorrupted background assets + Crawler Enemy: https://the-pixel-nook.itch.io/cave-tileset-free and https://odiurd.itch.io/tileset
 
-#Sounds:
+# Sounds:
 
 Walking: https://freesound.org/people/TechspiredMinds/sounds/729203/
 
