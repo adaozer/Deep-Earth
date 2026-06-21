@@ -9,5 +9,4 @@ func _init(condition_callable: Callable):
 func tick(actor) -> Status:
 	if condition.call(actor):
 		return Status.SUCCESS
-		
 	return Status.FAILURE

@@ -39,7 +39,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
+"speed": 8.0
 }]
 
 [node name="mentor" type="Area2D" unique_id=1635754398]

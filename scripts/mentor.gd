@@ -37,9 +37,11 @@ func talk():
 			"This is where it all began",
 			"First it started with the plants",
 			"Then the living creatures",
-			"Now its spread to the structure of the Underworld itself",
-			"Now its consumed almost everything",
-			"And you can see it trying to reach the dirt above"
+			"Now it spread to the structure of the Underworld itself",
+			"Consumed almost everything",
+			"And you can see it trying to reach the dirt above",
+			"It is said that if you reach the core of the Corruption, it will slowly disappear",
+			"But thats why it guards itself so heavily"
 		])
 	elif dialogue_set == 2:
 		DialogueManager.start_dialogue([
@@ -50,6 +52,9 @@ func talk():
 	elif dialogue_set == 3:
 		DialogueManager.start_dialogue([
 			"Congratulations great adventurer",
+			"You have avoided the Corruption's obstacles and reached its core",
+			"As you can see, the effects of the Corruption have already started disappearing",
+			"Soon, it will all be gone",
 			"You saved this world, and the world above",
-			"We are thankful"
+			"We are grateful"
 		])
