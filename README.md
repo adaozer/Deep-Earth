@@ -2,8 +2,6 @@
 
 A 2D pixel-art platformer built in Godot 4.6, where you descend through a corrupted cave system, phase through reality to dodge death, and outrun the things that live in the dark.
 
-![Deep Earth cave tileset](assets/tileset/Tileset.png)
-
 ## Story & Concept
 
 You explore an underground world that's slowly being consumed by corruption. Guided by a mentor NPC and pieces of dialogue found along the way, you'll need to phase between spots, swing on vines, dodge crumbling and moving platforms, and survive enemies (crawlers, followers) across 16 levels leading up to a final confrontation.
@@ -21,14 +19,14 @@ You explore an underground world that's slowly being consumed by corruption. Gui
 
 ## Controls
 
-| Action  | Key   |
-|---------|-------|
-| Move    | A / D |
-| Jump    | Space |
-| Phase   | J     |
-| Grab    | K     |
-| Interact| E     |
-| Pause   | Esc   |
+| Action   | Key   |
+|----------|-------|
+| Move     | A / D |
+| Jump     | Space |
+| Phase    | J     |
+| Grab     | K     |
+| Interact | E     |
+| Pause    | Esc   |
 
 Controls are rebindable from the in-game Settings menu.
 
@@ -45,23 +43,16 @@ Controls are rebindable from the in-game Settings menu.
 3. Run the main scene from the editor.
 
 ## Project Structure
+
+```
 Deep-Earth/
-├── scenes/ # Godot scenes: levels, player, enemies, UI, managers
-├── scripts/ # GDScript sources (player, enemies, menus, save system)
-│ └── bt/ # Behavior-tree nodes used for enemy AI
-├── assets/ # Sprites, tilesets, fonts, and sounds
-├── project.godot # Godot project configuration
+├── scenes/          # Godot scenes: levels, player, enemies, UI, managers
+├── scripts/         # GDScript sources (player, enemies, menus, save system)
+│   └── bt/          # Behavior-tree nodes used for enemy AI
+├── assets/          # Sprites, tilesets, fonts, and sounds
+├── project.godot    # Godot project configuration
 └── default_bus_layout.tres
-
-
-# Running Instructions:
-
-For opening the codebase, the game is made in Godot. Git cloning from the repo and importing it to Godot is enough.
-For launching the game, make sure that deep_earth.exe and deep_earth.pck are in the same directory. Then simply launch the exe. The game will create a save file at user://save.cfg
-For me this was inside %appdata%\Godot\app_userdata\deep-earth. This is automatic and you don't have to do anything. You can delete the save file if you want to restore the
-game back to default settings.
-
-Enjoy!
+```
 
 ## Credits
 
